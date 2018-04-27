@@ -30,7 +30,7 @@ SOURCES += \
         ../../ProjectsLib/LibMarcin/StringFcLib.cpp \
         ../../ProjectsLib/LibMarcin/gradient.cpp \
         ../../ProjectsLib/LibMarcin/RegionU16Lib.cpp \
-    ../../ProjectsLib/LibMarcin/MyQTImageWidget.cpp
+        ../../ProjectsLib/LibMarcin/MyQTImageWidget.cpp
 
 HEADERS += \
         mainwindow.h\
@@ -41,7 +41,7 @@ HEADERS += \
         ../../ProjectsLib/LibMarcin/gradient.h \
         ../../ProjectsLib/LibMarcin/StringFcLib.h \
         ../../ProjectsLib/LibMarcin/RegionU16Lib.h \
-    ../../ProjectsLib/LibMarcin/MyQTImageWidget.h
+        ../../ProjectsLib/LibMarcin/MyQTImageWidget.h
 
 FORMS += \
         mainwindow.ui
