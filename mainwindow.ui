@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>733</width>
+    <width>833</width>
     <height>571</height>
    </rect>
   </property>
@@ -452,7 +452,7 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>713</width>
+         <width>813</width>
          <height>341</height>
         </rect>
        </property>
@@ -541,6 +541,16 @@
       </property>
      </widget>
     </item>
+    <item row="5" column="16">
+     <widget class="QComboBox" name="comboBoxEditMode"/>
+    </item>
+    <item row="4" column="0">
+     <widget class="QPushButton" name="pushButtonSaveCropped">
+      <property name="text">
+       <string>PushButton</string>
+      </property>
+     </widget>
+    </item>
    </layout>
   </widget>
   <widget class="QMenuBar" name="menuBar">
@@ -548,7 +558,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>733</width>
+     <width>833</width>
      <height>21</height>
     </rect>
    </property>

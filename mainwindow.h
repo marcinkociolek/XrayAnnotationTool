@@ -25,7 +25,15 @@ public:
     int maxX;
     int maxY;
 
+    int linePrevX;
+    int linePrevY;
+
+    cv::Point boxCorner1;
+    cv::Point boxCorner2;
+
+
     int dispalyMode;
+    int editMode;
 
     int imageShowScale;
     int sdaRadius;
@@ -101,6 +109,10 @@ private slots:
     void on_checkBoxShowGray_toggled(bool checked);
 
     void on_checkBoxShowSDA_toggled(bool checked);
+
+    void on_comboBoxEditMode_currentIndexChanged(int index);
+
+    void on_pushButtonSaveCropped_clicked();
 
 private:
     Ui::MainWindow *ui;
