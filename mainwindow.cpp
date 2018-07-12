@@ -270,6 +270,11 @@ void MainWindow::on_widgetImage_mouseMoved(QPoint point, int butPressed)
         }
         if(butPressed & 0x2)
         {
+            linePrevX = x;
+            linePrevY = y;
+        }
+        if(butPressed & 0x4)
+        {
             linePrevX = -1;
             linePrevY = -1;
         }
@@ -358,6 +363,9 @@ void MainWindow::on_pushButtonOpenFile_clicked()
     FileNameWithPath = fileNames.at(0).toStdString();//dialog.getOpenFileName(this).toStdString();
     DirectoryPath  = dialog.directory().path().toStdString();
 
+    linePrevX = -1;
+    linePrevY = -1;
+
     OpenImage();
     ShowImages();
     ScaleImages();
@@ -379,48 +387,72 @@ void MainWindow::on_spinBox_valueChanged(int arg1)
 
 void MainWindow::on_spinBoxScale_valueChanged(int arg1)
 {
+    linePrevX = -1;
+    linePrevY = -1;
+
     imageShowScale = arg1;
     ScaleImages();
 }
 
 void MainWindow::on_doubleSpinBoxPCMin_valueChanged(double arg1)
 {
+    linePrevX = -1;
+    linePrevY = -1;
+
     dispMinPC = arg1;
     ShowImages();
 }
 
 void MainWindow::on_doubleSpinBoxPCMax_valueChanged(double arg1)
 {
+    linePrevX = -1;
+    linePrevY = -1;
+
     dispMaxPC = arg1;
     ShowImages();
 }
 
 void MainWindow::on_doubleSpinBoxGrayMin_valueChanged(double arg1)
 {
+    linePrevX = -1;
+    linePrevY = -1;
+
     dispMinGray = arg1;
     ShowImages();
 }
 
 void MainWindow::on_doubleSpinBoxGrayMax_valueChanged(double arg1)
 {
+    linePrevX = -1;
+    linePrevY = -1;
+
     dispMaxGray = arg1;
     ShowImages();
 }
 
 void MainWindow::on_doubleSpinBoxSDAMin_valueChanged(double arg1)
 {
+    linePrevX = -1;
+    linePrevY = -1;
+
     dispMinSDA = arg1;
     ShowImages();
 }
 
 void MainWindow::on_doubleSpinBoxSDAMax_valueChanged(double arg1)
 {
+    linePrevX = -1;
+    linePrevY = -1;
+
     dispMaxSDA = arg1;
     ShowImages();
 }
 
 void MainWindow::on_comboBoxDispalyMode_currentIndexChanged(int index)
 {
+    linePrevX = -1;
+    linePrevY = -1;
+
     dispalyMode = index;
     ShowImageWithMask();
 
@@ -428,21 +460,33 @@ void MainWindow::on_comboBoxDispalyMode_currentIndexChanged(int index)
 
 void MainWindow::on_pushButton_clicked()
 {
-   SDArecalculate();
+    linePrevX = -1;
+    linePrevY = -1;
+
+    SDArecalculate();
 }
 
 void MainWindow::on_spinBoxSDARadius_valueChanged(int arg1)
 {
+    linePrevX = -1;
+    linePrevY = -1;
+
     sdaRadius = arg1;
 }
 
 void MainWindow::on_spinBoxPenSize_valueChanged(int arg1)
 {
+    linePrevX = -1;
+    linePrevY = -1;
+
     penSize = arg1;
 }
 
 void MainWindow::on_pushButtonFillHoles_clicked()
 {
+    linePrevX = -1;
+    linePrevY = -1;
+
     FillBorderWithValue(ImROI, 0xFFFF);
     OneRegionFill5Fast1(ImROI,  0xFFFF);
     FillHoles(ImROI);
@@ -452,6 +496,9 @@ void MainWindow::on_pushButtonFillHoles_clicked()
 
 void MainWindow::on_pushButtonSaveROI_clicked()
 {
+    linePrevX = -1;
+    linePrevY = -1;
+
     if(ImIn.empty())
         return;
     if(ImROI.empty())
@@ -462,6 +509,9 @@ void MainWindow::on_pushButtonSaveROI_clicked()
 
 void MainWindow::on_pushButtonReload_clicked()
 {
+    linePrevX = -1;
+    linePrevY = -1;
+
     if(ImIn.empty())
         return;
     ImROI.release();
@@ -475,6 +525,9 @@ void MainWindow::on_pushButtonReload_clicked()
 
 void MainWindow::on_pushButtonClearROI_clicked()
 {
+    linePrevX = -1;
+    linePrevY = -1;
+
     if(ImIn.empty())
         return;
     ImROI.release();
@@ -485,6 +538,9 @@ void MainWindow::on_pushButtonClearROI_clicked()
 
 void MainWindow::on_checkBoxShowPC_toggled(bool checked)
 {
+    linePrevX = -1;
+    linePrevY = -1;
+
     showPC = checked;
     if(!showPC)
         destroyWindow("PC");
@@ -494,6 +550,9 @@ void MainWindow::on_checkBoxShowPC_toggled(bool checked)
 
 void MainWindow::on_checkBoxShowGray_toggled(bool checked)
 {
+    linePrevX = -1;
+    linePrevY = -1;
+
     showGray = checked;
     if(!showGray)
         destroyWindow("Gray");
@@ -503,6 +562,9 @@ void MainWindow::on_checkBoxShowGray_toggled(bool checked)
 
 void MainWindow::on_checkBoxShowSDA_toggled(bool checked)
 {
+    linePrevX = -1;
+    linePrevY = -1;
+
     showSDA = checked;
     if(!showSDA)
         destroyWindow("SDA");
@@ -519,6 +581,9 @@ void MainWindow::on_comboBoxEditMode_currentIndexChanged(int index)
 
 void MainWindow::on_pushButtonSaveCropped_clicked()
 {
+    linePrevX = -1;
+    linePrevY = -1;
+
     if(ImIn.empty())
         return;
     if(ImROI.empty())
